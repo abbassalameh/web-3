@@ -1,0 +1,37 @@
+<?php
+session_start();
+$user=$_SESSION["user"];
+$a=mysql_connect("localhost","root","salameh");
+$b=mysql_select_db("projet2");
+$c=mysql_query("SELECT CodeM,NomM from matiere where Prof='$user'");
+$d=mysql_num_rows($c);
+
+?>
+<html>
+	<head>
+		<title>choix prof</title>
+	</head>
+	<body>
+		<form name="form1" action="menuprof.php" method="POST">
+			<table>
+				<tr>
+					<td>Choix matiere</td>
+					<td><select name="matiere">
+						<option value="vide"></option>
+						<?php for($i=0;$i<$d;$i++){
+						$e=mysql_result($c,$i,"NomM");
+						$f=mysql_result($c,$i,"CodeM");?>
+							<option value="<?php echo $f; ?>"><?php echo $e;?></option><?php }?>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><input type=submit name="submit1" value="modifier"></td>
+					<td><input type=submit name="submit2" value="resultat"></td>
+					<td><input type=submit name="submit3" value="addQ"></td>
+				</tr>
+			</table>
+		</form>
+		<a href="logout.php">logout</a>
+	</body>
+</html>
