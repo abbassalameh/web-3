@@ -30,8 +30,8 @@ $ff=mysql_num_rows($f);
 					</td>
 				</tr>
 				<tr>
-					<td><input type=submit name="submit1" value="Resultat"></td>
 					<td><a href="resultattotalchef">Resultat total</a></td>
+					<td><input type=submit name="submit1" value="Resultat"></td>
 					<td><input type=submit name="submit2" value="Modifier"></td>
 				</tr>
 			</table>
