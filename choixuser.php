@@ -31,6 +31,9 @@
 					<td><input type=submit value="examen"></td>
 					<td><a href="resultatt.php">resultat</a></td>
 				</tr>
+				<tr>
+					<td><a href="logout.php">logout</a></td>
+				</tr>
 			</table>
 		</form>
 	</body>

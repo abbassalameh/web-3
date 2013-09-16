@@ -17,7 +17,6 @@ $d=mysql_num_rows($c);
 				<tr>
 					<td>Choix matiere</td>
 					<td><select name="matiere">
-						<option value="vide"></option>
 						<?php for($i=0;$i<$d;$i++){
 						$e=mysql_result($c,$i,"NomM");
 						$f=mysql_result($c,$i,"CodeM");?>

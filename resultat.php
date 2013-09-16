@@ -1,5 +1,14 @@
 <?php
 session_start();
+$atime=date("H:i:s");
+$time=$_SESSION["time"];
+
+$datetime1 = strtotime($time);
+$datetime2 = strtotime($atime);
+
+$ti = $datetime2 - $datetime1;// == <seconds between the two times>
+$tim=floor($ti/3600) . ":" .  floor($ti/60) . ":" . $ti%60;
+
 if($_SESSION["user"]&&$_SESSION["matiere"]){
 $a=$_SESSION["user"];
 $b=$_SESSION["matiere"];
@@ -51,7 +60,7 @@ if($mmm1==$ggg){$note=$note+3;}
 if($n1==$h){$note=$note+3;}
 if($nn1==$hh){$note=$note+3;}
 if($o1==$i){$note=$note+5;}
-$p=mysql_query("INSERT INTO note(`UserName`, `CMatiere`, `Note`, `Date`, `Specialiter`) VALUES ('$a','$b','$note','$c','$l2')");
+$p=mysql_query("INSERT INTO note(`UserName`, `CMatiere`, `Note`, `Date`, `Specialiter`, `time`) VALUES ('$a','$b','$note','$c','$l2','$tim')");
 ?>
 <html>
 	<head>
@@ -63,11 +72,13 @@ $p=mysql_query("INSERT INTO note(`UserName`, `CMatiere`, `Note`, `Date`, `Specia
 				<td>Nom Matiere</td>
 				<td>Resultat</td>
 				<td>Date</td>
+				<td>Time</td>
 			</tr>
 			<tr>
 				<td><?php echo $l1;?></td>
 				<td><?php echo $note . "/20";?></td>
 				<td><?php echo $c; ?></td>
+				<td><?php echo $tim;?></td>
 			</tr>
 		</table>
 		<a href="choixuser.php">back home</a>

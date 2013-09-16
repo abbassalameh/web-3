@@ -1,5 +1,7 @@
 <?php
 session_start();
+$a=date("H:i:s");
+$_SESSION["time"]=$a;
 $un=$_SESSION["user"];
 $m=$_POST["matiere"];
 $_SESSION["matiere"]=$m;

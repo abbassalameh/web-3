@@ -56,6 +56,9 @@ $e=mysql_num_rows($d);
 				<td><input type=submit name="submit1" value="change"></td>
 				<td><input type=submit name="submit2" value="delete"></td>
 			</tr></form><?php } ?>
+			<tr><td><a href="choixprof.php">home</a></td>
+				<td><a href="logout.php">logout</a></td>
+			</tr>
 		</table>
 	</body>
 </html>

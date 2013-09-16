@@ -11,10 +11,10 @@ $e=mysql_num_rows($d);
 		<title>register.php</title>
 		<script>
 			function verification(){<!-- mish meshye badda tozbit -->
-				var a=document.getElementById("pass");
-				var b=document.getElementById("pass2");
-				if(a==b){return true;}
-					else {alert("password did not match");
+				var a=document.getElementById("pass1");
+				var b=document.getElementById("pass11");
+				if(a.value==b.value){return true;}
+					else {document.getElementById("div1").innerHTML="pass did not match";document.getElementById("pass11").value="";
 						return false;}
 			}
 		</script>
@@ -32,11 +32,11 @@ $e=mysql_num_rows($d);
 				</tr>
 				<tr>
 					<td>Password</td>
-					<td><input type=password name="pass" id="pass"></td>
+					<td><input type=password name="pass" id="pass1"></td>
 				</tr>
 				<tr>
 					<td>Re-type pass</td>
-					<td><input type=password name="pass2" id="pass2" onchange="verification()"></td>
+					<td><input type=password name="pass2" id="pass11" onchange="verification()"><span id="div1"></span> </td>
 				</tr>
 				<tr>
 					<td>Email</td>
