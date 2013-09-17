@@ -7,7 +7,7 @@ $d=mysql_query("SELECT Specialiter from users where UserName='$a'");
 $e=mysql_result($d,0,"Specialiter");
 $f=mysql_query("SELECT NomM,CodeM from matiere where Specialiter='$e'");
 $ff=mysql_num_rows($f);
-
+$_SESSION["spechef"]=$e;
 ?>
 <html>
 	<head>
@@ -38,5 +38,3 @@ $ff=mysql_num_rows($f);
 		</form>
 	</body>
 </html>
-					
-					

@@ -13,7 +13,7 @@ include 'choixchef.php';
 				</td>
 				<td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 				<td>
-					<a href="modifierchefm">Modifier Matiere</a>
+					<a href="modifierchefm.php">Modifier Matiere</a>
 				</td>
 			</tr>
 		</table>
