@@ -1,27 +1,40 @@
-<!--demain bshoufa-->
 <?php
 session_start();
 $a=mysql_connect("localhost","root","salameh");
 $b=mysql_select_db("projet2");
 $p=0;
-$pp=0;
-$chef=$_SESSION["matiere"];
+
+$code=$_SESSION["matiere"];
 $specialiter=$_SESSION["spechef"];
 
+$d=$_SESSION["nomm"];
+$f=$_SESSION["prfo"];
 
 
-if(!empty($_POST["nomm"]) && !empty($_POST["codem"]) && !empty($_POST["prof"])){
-$d=$_POST["nomm"];
-$e=strtoupper($_POST["codem"]);
-$f=$_POST["prof"];
 
-$dd=mysql_result($qw,0,"NomM");
-$ddd=mysql_result($qw,0,"CodeM");
-if(($dd==$d)||($ddd==$e)){$p=$p+1;}
-else $p=$p;
 
-if($p==0){$qwe=mysql_query("INSERT INTO `matiere`(`NomM`, `CodeM`, `Specialiter`, `Prof`) 
-							VALUES ('$d','$e','$specialiter','$f' where CodeM='$chef')");
-		echo "<meta http-equiv='refresh' content='0;URL=choixchef.php'>";
-		}
-		else {echo "<meta http-equiv='refresh' content='0;URL=modifierchefm
+$qw1=mysql_query("SELECT * FROM matiere WHERE Specialiter='$specialiter' && CodeM!='$code'");
+$count1=mysql_num_rows($qw1);
+
+
+if(!empty($_POST["nomm"])&& !empty($_POST["prof"])){
+for($i=0;$i<$count1;$i++){
+
+$dd2=mysql_result($qw1,$i,"NomM");
+$ddc=mysql_result($qw1,$i,"CodeM");
+
+if($d==$dd2){$p=$p+1;}
+}
+echo $p;
+if($p!=0){echo "<meta http-equiv='refresh' content='0;URL=modifierchefm.php'>";}
+else if($p==0){$qwe=mysql_query("UPDATE `matiere` SET `NomM`='$d' , `Prof`='$f' where CodeM='$code'");
+							echo "<meta http-equiv='refresh' content='0;URL=choixchef.php'>";
+							}
+							}
+	else echo "<meta http-equiv='refresh' content='0;URL=modifierchefm.php'>";
+?>
+
+
+
+
+

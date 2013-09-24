@@ -10,7 +10,7 @@ $e=mysql_num_rows($d);
 	<head>
 		<title>register.php</title>
 		<script>
-			function verification(){<!-- mish meshye badda tozbit -->
+			function verification(){
 				var a=document.getElementById("pass1");
 				var b=document.getElementById("pass11");
 				if(a.value==b.value){return true;}

@@ -34,6 +34,9 @@
 				<tr>
 					<td><a href="logout.php">logout</a></td>
 				</tr>
+				<tr>
+					<td><a href="changeu.php">profile</a></td>
+				</tr>
 			</table>
 		</form>
 	</body>

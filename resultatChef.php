@@ -33,6 +33,19 @@ $e=mysql_num_rows($d);
 				<td><?php echo $time;?></td>
 			</tr>
 			<?php } ?>
+			<tr>
+				<td>P.reussis:</td>
+				<td align=center><?php $reu=mysql_query("SELECT Note FROM `note` WHERE CMatiere='$a' && Note>10");
+						  $res=mysql_query("SELECT Note FROM `note` WHERE CMatiere='$a'");
+						  $reu1=mysql_num_rows($reu);
+						  $res1=mysql_num_rows($res);
+						  if(($res1==0)||($reu1==0)){echo "zero%";}
+						  else {$pour=($reu1*100)/$res1;
+						  echo $pour . "%";}
+						 ?>
+				</td>
+			</tr>
+				
 			<tr><td><a href="logout.php">logout</a></td></tr>
 		</table>
 	</body>
