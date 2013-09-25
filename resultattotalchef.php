@@ -28,10 +28,10 @@ $cc=mysql_num_rows($c);
 			for($i=0;$i<$cc;$i++){
 			$d=mysql_result($c,$i,"NomM");
 			$dd=mysql_result($c,$i,"CodeM");
-			$res=mysql_query("SELECT Note FROM `note` WHERE CMatiere='$dd'");
+				$res=mysql_query("SELECT Note FROM `note` WHERE CMatiere='$dd'");
 				$reu=mysql_query("SELECT Note FROM `note` WHERE CMatiere='$dd' && Note>10");
-				$reu1=mysql_num_rows($reu);
 				$res1=mysql_num_rows($res);
+				$reu1=mysql_num_rows($reu);
 				if(($res1==0)||($reu1==0)){$e="zero%";}
 				else {$e=floor(($reu1*100)/$res1) . "%";}
 			$h=mysql_result($c,$i,"Prof");

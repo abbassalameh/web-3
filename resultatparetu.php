@@ -8,6 +8,7 @@ $c=mysql_query("SELECT * from matiere where NomM='$NomM'");
 $code=mysql_result($c,0,"CodeM");
 $h=mysql_query("SELECT DISTINCT UserName FROM note where CMatiere='$code'");
 $cc=mysql_num_rows($h);
+$count=0;
 ?>
 <html>
 	<head>
@@ -32,6 +33,7 @@ $cc=mysql_num_rows($h);
 				else {$e=floor(($reu1*100)/$res1) . "%";}
 				$nb=mysql_query("SELECT * from note where UserName='$f' && CMatiere='$code'");
 				$nb1=mysql_num_rows($nb);
+				$count++;
 				?>
 			<tr>
 				<td><?php echo $gg;?></td>

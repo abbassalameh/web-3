@@ -1,9 +1,10 @@
 <?php
-session_start();
+include 'choixprof.php';
 $a=$_SESSION["matiere"];
+$aa=$_POST["name"];
 $b=mysql_connect("localhost","root","salameh");
 $c=mysql_select_db("projet2");
-$d=mysql_query("SELECT * from note where CMatiere='$a'");
+$d=mysql_query("SELECT * from note where CMatiere='$a' && UserName='$aa'");
 $e=mysql_num_rows($d);
 ?>
 <html>
@@ -34,7 +35,5 @@ $e=mysql_num_rows($d);
 			</tr>
 			<?php } ?>
 		</table>
-		<a href="choixprof.php">back home</a>
-		<a href="logout.php">logout</a>
 	</body>
 </html>

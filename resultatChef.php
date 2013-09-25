@@ -4,8 +4,9 @@ include 'choixchef.php';
 $a=$_SESSION["matiere"];
 $b=mysql_connect("localhost","root","salameh");
 $c=mysql_select_db("projet2");
-$d=mysql_query("SELECT * from note where CMatiere='$a'");
+$d=mysql_query("SELECT DISTINCT UserName from note where CMatiere='$a'");
 $e=mysql_num_rows($d);
+$count=0;
 ?>
 <html>
 	<head>
@@ -15,23 +16,33 @@ $e=mysql_num_rows($d);
 		<table>
 			<tr>
 				<td>Name</td>
-				<td>Resultat</td>
-				<td align=center>Date</td>
-				<td>time</td>
+				<td>Pourcentage</td>
+				<td>nb Examen</td>
 			</tr>
 			<?php for($i=0;$i<$e;$i++){
+			
 				$f=mysql_result($d,$i,"UserName");
-				$g=mysql_result($d,$i,"Note");
-				$h=mysql_result($d,$i,"Date");
+				$dd=mysql_query("SELECT Note from note where CMatiere='$a' && UserName='$f'");
+				$g=mysql_num_rows($dd);
+				
+				//$h=mysql_result($d,$i,"Date");
+				//$time=mysql_result($d,$i,"time");
 				$j=mysql_query("SELECT Name from users where UserName='$f'");
 				$k=mysql_result($j,0,"Name");
-				$time=mysql_result($d,$i,"time");
+				$mq=mysql_query("SELECT Note from note where CMatiere='$a' && UserName='$f'");
+				$mq1=mysql_query("SELECT Note from note where Cmatiere='$a' && Username='$f' && note>10");
+				$mnr=mysql_num_rows($mq);
+				$mnr1=mysql_num_rows($mq1);
+				if(($mnr==0)||($mnr1==0)){$rt="zero%";}
+						  else {$rt=floor(($mnr1*100)/$mnr) . "%";}
+						  $count=$i+1;
 			?>
 			<tr>
 				<td><?php echo $k;?></td>
-				<td align=center><?php echo $g;?></td>
-				<td><?php echo $h;?></td>
-				<td><?php echo $time;?></td>
+				<td align=center><?php echo $rt;?></td>
+				<td align=center><form action="resultatmatiereparetu.php" method="POST">
+				<input type=hidden name="name" value="<?php echo $f;?>">
+				<a href="#" onclick="document.forms['<?php echo $count;?>'].submit();return false;"><?php echo $g;?></a></form></td>
 			</tr>
 			<?php } ?>
 			<tr>
@@ -45,9 +56,6 @@ $e=mysql_num_rows($d);
 						  echo $pour . "%";}
 						 ?>
 				</td>
-			</tr>
-				
-			<tr><td><a href="logout.php">logout</a></td></tr>
 		</table>
 	</body>
 </html>
