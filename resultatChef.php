@@ -40,7 +40,7 @@ $e=mysql_num_rows($d);
 						  $reu1=mysql_num_rows($reu);
 						  $res1=mysql_num_rows($res);
 						  if(($res1==0)||($reu1==0)){echo "zero%";}
-						  else {$pour=($reu1*100)/$res1;
+						  else {$pour=floor(($reu1*100)/$res1);
 						  echo $pour . "%";}
 						 ?>
 				</td>

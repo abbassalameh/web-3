@@ -33,7 +33,7 @@ $cc=mysql_num_rows($c);
 				$reu1=mysql_num_rows($reu);
 				$res1=mysql_num_rows($res);
 				if(($res1==0)||($reu1==0)){$e="zero%";}
-				else {$e=($reu1*100)/$res1 . "%";}
+				else {$e=floor(($reu1*100)/$res1) . "%";}
 			$h=mysql_result($c,$i,"Prof");
 			$f=mysql_query("SELECT DISTINCT UserName FROM note where CMatiere='$dd'");
 			$ff=mysql_num_rows($f);
@@ -50,5 +50,7 @@ $cc=mysql_num_rows($c);
 			</tr>
 			<?php }?>
 		</table>
+		<a href="choixchef.php">home</a>
+		<a href="logout.php">logout</a>
 	</body>
 </html>

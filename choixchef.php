@@ -34,6 +34,10 @@ $_SESSION["spechef"]=$e;
 					<td><input type=submit name="submit1" value="Resultat"></td>
 					<td><input type=submit name="submit2" value="Modifier"></td>
 				</tr>
+				<tr>
+					<td><a href="account.php">manage account</a></td>
+					<td><a href="logout.php">logout</a></td>
+				</tr>
 			</table>
 		</form>
 	</body>
