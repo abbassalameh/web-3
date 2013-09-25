@@ -32,5 +32,6 @@ $d=mysql_num_rows($c);
 			</table>
 		</form>
 		<a href="logout.php">logout</a>
+		<a href="account.php">manage account</a>
 	</body>
 </html>

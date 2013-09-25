@@ -32,11 +32,11 @@ $e=mysql_num_rows($d);
 				</tr>
 				<tr>
 					<td>Password</td>
-					<td><input type=password name="pass" id="pass1"></td>
+					<td><input type=text name="pass" id="pass1"></td>
 				</tr>
 				<tr>
 					<td>Re-type pass</td>
-					<td><input type=password name="pass2" id="pass11" onchange="verification()"><span id="div1"></span> </td>
+					<td><input type=text name="pass2" id="pass11" onchange="verification()"><span id="div1"></span> </td>
 				</tr>
 				<tr>
 					<td>Email</td>

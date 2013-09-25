@@ -19,7 +19,6 @@ $e=mysql_num_rows($d);
 				<td>Reponse2</td>
 				<td>Reponse correct</td>
 				<td>difficulite</td>
-				<td>Code Question</td>
 			</tr>
 			<?php
 			for($i=0;$i<$e;$i++){
@@ -52,7 +51,7 @@ $e=mysql_num_rows($d);
 										</select>
 									</td>
 									<?php }?>
-				<td align=center><input type=radio name="CQ" value="<?php echo $l;?>" checked></td>
+				<td align=center><input type=hidden name="CQ" value="<?php echo $l;?>" checked></td>
 				<td><input type=submit name="submit1" value="change"></td>
 				<td><input type=submit name="submit2" value="delete"></td>
 			</tr></form><?php } ?>

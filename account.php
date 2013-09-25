@@ -14,6 +14,7 @@ $g=mysql_result($d,0,"Email");
 		<script>
 			function lili(){
 				document.getElementById("Retype").disabled = false;
+				document.getElementById("Retype2").value="ASD";
 			}
 
 			function lilo(){
@@ -30,7 +31,8 @@ $g=mysql_result($d,0,"Email");
 			<table>
 				<tr>
 					<td>Name:</td>
-					<td><input type=text name="Name" value="<?php echo $e;?>" disabled></td>
+					<td><input type=text name="Name1" value="<?php echo $e;?>" disabled>
+						<input type=hidden name="Name" value="<?php echo $e;?>"></td>
 				</tr>
 				<tr>
 					<td>User:</td>
@@ -42,7 +44,8 @@ $g=mysql_result($d,0,"Email");
 				</tr>
 					<tr>
 						<td>retype Pass:</td>
-						<td><input type=text name="Retype" id="Retype" onchange="lilo()" disabled></td>
+						<td><input type=text name="Retype" id="Retype" onchange="lilo()" disabled>
+							<input type=hidden name="Retype2" id="Retype2" value="AMD"></td>
 						<td><span id="span2"></span></td>
 					</tr>
 				<tr>

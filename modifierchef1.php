@@ -17,7 +17,7 @@ $qw1=mysql_query("SELECT * FROM matiere WHERE Specialiter='$specialiter' && Code
 $count1=mysql_num_rows($qw1);
 
 
-if(!empty($_POST["nomm"])&& !empty($_POST["prof"])){
+if(!empty($d)&& !empty($f)){
 for($i=0;$i<$count1;$i++){
 
 $dd2=mysql_result($qw1,$i,"NomM");
@@ -25,7 +25,8 @@ $ddc=mysql_result($qw1,$i,"CodeM");
 
 if($d==$dd2){$p=$p+1;}
 }
-echo $p;
+
+
 if($p!=0){echo "<meta http-equiv='refresh' content='0;URL=modifierchefm.php'>";}
 else if($p==0){$qwe=mysql_query("UPDATE `matiere` SET `NomM`='$d' , `Prof`='$f' where CodeM='$code'");
 							echo "<meta http-equiv='refresh' content='0;URL=choixchef.php'>";
