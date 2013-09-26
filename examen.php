@@ -3,8 +3,8 @@ session_start();
 $a=date("H:i:s");
 $_SESSION["time"]=$a;
 $un=$_SESSION["user"];
-$m=$_POST["matiere"];
-$_SESSION["matiere"]=$m;
+$m=$_SESSION["matiere"];
+
 $a=mysql_connect("localhost","root","salameh");
 $b=mysql_select_db("projet2");
 $c=mysql_query("SELECT * from question where CMatiere='$m' AND diff='E'");

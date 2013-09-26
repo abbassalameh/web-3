@@ -3,7 +3,8 @@ session_start();
 $a=mysql_connect("localhost","root","salameh");
 $b=mysql_select_db("projet2");
 $c=$_SESSION["user"];
-$d=mysql_query("SELECT * from note where UserName='$c'");
+$cc=$_SESSION["matiere"];
+$d=mysql_query("SELECT * from note where UserName='$c' && CMatiere='$cc'");
 $e=mysql_num_rows($d);
 ?>
 <html>

@@ -1,5 +1,4 @@
 <?php
-echo "<p style='font-size:30;color:red'>badde zabet badde % la kil etu w link bas yikbos bye5do 3ala l etu w kil 3alemeto</p>";
 include 'choixchef.php';
 $a=$_SESSION["matiere"];
 $b=mysql_connect("localhost","root","salameh");

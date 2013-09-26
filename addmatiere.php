@@ -5,6 +5,8 @@ $a=mysql_connect("localhost","root","salameh");
 $b=mysql_select_db("projet2");
 $c=mysql_query("SELECT * from matiere where specialiter='$aa'");
 $cc=mysql_num_rows($c);
+$e=mysql_query("SELECT * FROM `users` WHERE `Specialiter`='$aa' && `Position`='prof'");
+$ee=mysql_num_rows($e);
 ?>
 <html>
 	<head>
@@ -46,7 +48,15 @@ $cc=mysql_num_rows($c);
 				</tr>
 				<tr>
 					<td>Nom Prof</td>
-					<td><input type="text" name="nomP"></td>
+					<td><select name="nomP">
+						<?php for($i=0;$i<$ee;$i++){
+							$f=mysql_result($e,$i,"Name");
+							$ff=mysql_result($e,$i,"UserName");
+						?>
+						<option name="<?php echo $ff;?>"><?php echo $f;?></option>
+					<?php }?>
+						</select>
+					</td>
 				</tr>
 				<tr>
 					<td><input type=submit value="add"></td>

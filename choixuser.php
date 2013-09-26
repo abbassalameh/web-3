@@ -17,7 +17,7 @@
 		<title>choixmatiereuser</title>
 	</head>
 	<body>
-		<form name="form1" method="POST" action="examen.php">
+		<form name="form1" method="POST" action="choix2.php">
 			<table>
 				<tr>
 					<td>matiere</td>
@@ -28,8 +28,8 @@
 					</select></td>
 				</tr>
 				<tr>
-					<td><input type=submit value="examen"></td>
-					<td><a href="resultatt.php">resultat</a></td>
+					<td><input type=submit value="Examen" name="submit1"></td>
+					<td><input type=submit value="Resultat" name="submit2"></td>
 				</tr>
 				<tr>
 					<td><a href="logout.php">logout</a></td>
