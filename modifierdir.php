@@ -1,20 +1,24 @@
 <?php
-include 'modifierchef.php';
+include 'modifierMdir.php';
 
 $aa=mysql_connect("localhost","root","salameh");
 $aaa=mysql_select_db("projet2");
-$a=$_SESSION["matiere"];
-$b=mysql_query("SELECT * FROM `matiere` WHERE `CodeM`='$a'");
-$bb=$_SESSION["spechef"];
+$a=$_SESSION["spec"];
+$b=mysql_query("SELECT * FROM `specialiter` WHERE `NomS`='$a'");
+
 ?>
 <html>
 	<head>
 		<title>modifierchefmatiere</title>
 		<script>
+			function loli(){
+			alert("are you sure");
+			}
+		
 			function lili(){
 			document.getElementById("end").style.visibility = "visible";
 			}
-			
+
 			function verification(){
 				var a=document.getElementById("pass1");
 				var b=document.getElementById("pass11");
@@ -22,29 +26,27 @@ $bb=$_SESSION["spechef"];
 					else {document.getElementById("div2").innerHTML="pass did not match";document.getElementById("pass11").value="";
 						return false;}
 			}
-			
+
 		</script>
 	</head>
 	<body>
-		<form name="form1" action="choixmodif.php" method="POST">
+		<form name="form1" action="modifierdir1.php" method="POST">
 			<table>
 				<tr>
-					<td>Nom Matiere</td>
-					<td>Code Matiere</td>
-					<td>Prof</td>
+					<td>Nom Specialiter</td>
+					<td>Nom Chef</td>
 				</tr>
 				<tr>
-					<?php	$d=mysql_result($b,0,"NomM");
-							$dd=mysql_result($b,0,"CodeM");
-							$ddd=mysql_result($b,0,"Prof");
-							$f=mysql_query("SELECT Name from users where UserName='$ddd'");
+					<?php	$d=mysql_result($b,0,"NomS");
+							$ddd=mysql_result($b,0,"NomChef");
+							$f=mysql_query("SELECT * from users where UserName='$ddd'");
 							$ff=mysql_result($f,0,"Name");
-							$g=mysql_query("SELECT * from users where UserName!='$ddd' && Specialiter='$bb' && Position='prof'");
+							$g=mysql_query("SELECT * from users where UserName!='$ddd' && Position='chef'");
 							$gg=mysql_num_rows($g);
 							?>
-					<td><input type=text name="nomm" value="<?php echo $d;?>"></td>
-					<td><input type=text name="codem" value="<?php echo $dd;?>" disabled></td>
-					<td><select name="prof">
+					<td><input type=text name="nomas" value="<?php echo $d;?>" disabled>
+						<input type=hidden value="<?php echo $d;?>" name="noms"></td>
+					<td><select name="chef">
 						<option value="<?php echo $ddd;?>" selected><?php echo $ff;?></option>
 						<?php for($i=0;$i<$gg;$i++){
 						$h=mysql_result($g,$i,"Name");
@@ -53,8 +55,8 @@ $bb=$_SESSION["spechef"];
 						<option value="<?php echo $hh;?>"><?php echo $h;?></option>
 						<?php }?>
 						</td>
-						<td><input type=submit name="submit3" value="delete"></td>
-						<td><span ><input type=button onclick="lili()" value="new prof"></td>
+						<td><input type=submit value="delete" name="submit3" onclick="loli()"></td>
+						<td><span ><input type=button onclick="lili()" value="new Chef"></td>
 							<td><span id="end" style="visibility:hidden">Name<input type=text name="namep"><br>
 															UserName<input type=text name="userp"><br>
 															Pass<input type=text name="passp" id="pass1"><br>

@@ -1,7 +1,7 @@
 <?php
 session_start();
-$a=mysql_connect("localhost","root","salameh");
-$b=mysql_select_db("projet2");
+$a=mysql_connect("localhost","root","salameh")or die("unable to connect");
+$b=mysql_select_db("projet2")or die("unable to connect to db");
 $c="SELECT NomS from specialiter";
 $d=mysql_query($c);
 $e=mysql_num_rows($d);

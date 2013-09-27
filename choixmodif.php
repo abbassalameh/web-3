@@ -4,15 +4,18 @@ $_SESSION["nomm"]=$_POST["nomm"];
 $_SESSION["prfo"]=$_POST["prof"];
 $q=$_SESSION["spechef"];
 $p=0;
-
+$a=mysql_connect("localhost","root","salameh");
+$b=mysql_select_db("projet2");
+if(isset($_POST["submit3"])){$code=$_SESSION["matiere"];$code1=mysql_query("DELETE from matiere where CodeM='$code'");
+							echo "<meta http-equiv='refresh' content='0;URL=choixchef.php'>";
+}
 if(isset($_POST["submit1"])){echo "<meta http-equiv='refresh' content='0;URL=modifierchef1.php'>";}
 if(isset($_POST["submit2"])){
 	if(!empty($_POST["namep"])&&!empty($_POST["userp"])&&
 		!empty($_POST["passp"])&&!empty($_POST["retype"])
 		&&!empty($_POST["emailp"])){
 
-		$a=mysql_connect("localhost","root","salameh");
-		$b=mysql_select_db("projet2");
+
 		
 		$c=$_POST["namep"];
 		$d=$_POST["userp"];
@@ -21,8 +24,6 @@ if(isset($_POST["submit2"])){
 		$g=$_POST["emailp"];
 		
 		
-		$j=mysql_connect("localhost","root","salameh");
-		$k=mysql_select_db("projet2");
 		$l=mysql_query("SELECT * from users");
 		$ll=mysql_num_rows($l);
 		for($i=0;$i<$ll;$i++){

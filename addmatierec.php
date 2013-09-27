@@ -1,7 +1,7 @@
 <?php
 session_start();
-$a=mysql_connect("localhost","root","salameh");
-$b=mysql_select_db("projet2");
+$a=mysql_connect("localhost","root","salameh")or die("unable to connect");
+$b=mysql_select_db("projet2")or die("unable to connect to db");
 $p=0;
 $pp=0;
 $chef=$_SESSION["spechef"];
@@ -10,10 +10,11 @@ $cc=mysql_num_rows($qw);
 
 
 
-if(!empty($_POST["nomM"]) && !empty($_POST["codeM"]) && !empty($_POST["nomP"])){
-$d=$_POST["nomM"];
-$e=strtoupper($_POST["codeM"]);
-$f=$_POST["nomP"];
+
+$d=$_SESSION["nomM"];
+$e=strtoupper($_SESSION["codeM"]);
+$f=$_SESSION["nomP"];
+if(!empty($d) && !empty($e) && !empty($f)){
 for($i=0;$i<$cc;$i++){
 $dd=mysql_result($qw,$i,"NomM");
 $ddd=mysql_result($qw,$i,"CodeM");

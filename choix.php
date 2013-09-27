@@ -13,7 +13,7 @@
 			if($f=="etu"){echo "<meta http-equiv='refresh' content='0;URL=choixuser.php'>";}
 			if($f=="prof"){echo "<meta http-equiv='refresh' content='0;URL=choixprof.php'>";}
 			if($f=="chef"){echo "<meta http-equiv='refresh' content='0;URL=choixchef.php'>";}
-			if($f=="directeur"){echo "<meta http-equiv='refresh' content='0;URL=choixdirecteur.php'>";}
+			if($f=="dir"){echo "<meta http-equiv='refresh' content='0;URL=choixdirecteur.php'>";}
 		}
 		else echo "<meta http-equiv='refresh' content='0;URL=login.php'>";
 	}
