@@ -8,6 +8,7 @@
 	$f=mysql_query($e);
 	$g=mysql_fetch_row($f);
 	$d=$g[0];
+	$_SESSION["userspec"]=$d;
 	$c="SELECT NomM,CodeM from matiere where Specialiter='$d'";
 	$h=mysql_query($c);
 	$j=mysql_num_rows($h);

@@ -21,6 +21,8 @@ $dd=mysql_num_rows($d);
 			for($i=0;$i<$dd;$i++){
 			$e=mysql_result($d,$i,"NomS");
 			$f=mysql_result($d,$i,"NomChef");
+			$ff=mysql_query("SELECT * from users where Username='$f'");
+			$fff=mysql_result($ff,0,"Name");
 			$g=mysql_query("SELECT * from note where Specialiter='$e'");
 			$gg=mysql_query("SELECT * from note where Specialiter='$e' && note>10");
 			$h=mysql_num_rows($g);
@@ -31,7 +33,7 @@ $dd=mysql_num_rows($d);
 			<tr>
 				<td><?php echo $e;?></td>
 				<td align=center ><?php echo $j;?></td>
-				<td><?php echo $f;?></td>
+				<td><?php echo $fff;?></td>
 			</tr>
 			<?php }?>
 			<tr>
