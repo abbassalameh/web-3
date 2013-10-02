@@ -6,8 +6,12 @@ $bb=$_POST["pass"];
 $re=$_POST["retype"];
 $p=0;
 $pp=0;
+$l=0;
+$ll==0;
 include 'connect.php';
 $f=mysql_query("SELECT * from specialiter");
+$ff=mysql_query("SELECT * from users");
+$gg=mysql_num_rows($ff);
 $g=mysql_num_rows($f);
 if(!empty($a) && !empty($b) && !empty($aa) && !empty($bb) && !empty($re)){
 
@@ -17,8 +21,14 @@ for($i=0;$i<$g;$i++){
 	if($a==$h){$p++;}
 	if($b==$hh){$pp++;}
 	}
-	if(($p!=0)||($pp!=0)){echo "<meta http-equiv='refresh' content='0;URL=addspec.php'>";}
-	if(($p==0)&&($pp==0)){$c=mysql_query("INSERT INTO `specialiter`(`NomS`, `NomChef`) VALUES ('$a','$aa')");
+for($i=0;$i<$gg;$i++){
+	$k=mysql_result($ff,$i,"Name");
+	$kk=mysql_result($ff,$i,"Username");
+	if($k==$b){$l++;}
+	if($kk==$aa){$ll++;}
+}
+	if(($p!=0)||($pp!=0)||($l!=0)||($ll!=0)){echo "<meta http-equiv='refresh' content='0;URL=addspec.php'>";}
+	if(($p==0)&&($pp==0)&&($l==0)&&($ll==0)){$c=mysql_query("INSERT INTO `specialiter`(`NomS`, `NomChef`) VALUES ('$a','$aa')");
 						$cc=mysql_query("INSERT INTO `users`(`Name`, `UserName`, `Password`, `Specialiter`, `Position`)
 								VALUES ('$b','$aa','$bb','$a','chef')");
 							echo "<meta http-equiv='refresh' content='0;URL=choixdirecteur.php'>";

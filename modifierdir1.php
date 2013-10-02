@@ -2,13 +2,16 @@
 session_start();
 $_SESSION["noms"]=$_POST["noms"];
 $_SESSION["chef"]=$_POST["chef"];
+$cheff=$_POST["chef"];
 $true=$_SESSION["true"];
 
 $as=$_SESSION["noms"];
 $p=0;
 include 'connect.php';
 
-if(isset($_POST["submit3"])){$code=mysql_query("DELETE from specialiter where NomS='$as'");echo "<meta http-equiv='refresh' content='0;URL=choixdirecteur.php'>";}
+if(isset($_POST["submit3"])){$code=mysql_query("DELETE from specialiter where NomS='$as'");
+							$code=mysql_query("DELETE from users where UserName='$cheff'");
+							echo "<meta http-equiv='refresh' content='0;URL=choixdirecteur.php'>";}
 if(isset($_POST["submit1"])){echo "<meta http-equiv='refresh' content='0;URL=modifierdir2.php'>";}
 if(isset($_POST["submit2"])){
 	if(!empty($_POST["namep"])&&!empty($_POST["userp"])&&
