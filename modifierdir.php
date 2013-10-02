@@ -1,8 +1,6 @@
 <?php
 include 'modifierMdir.php';
-
-$aa=mysql_connect("localhost","root","salameh");
-$aaa=mysql_select_db("projet2");
+include 'connect.php';
 $a=$_SESSION["spec"];
 $b=mysql_query("SELECT * FROM `specialiter` WHERE `NomS`='$a'");
 
@@ -11,9 +9,6 @@ $b=mysql_query("SELECT * FROM `specialiter` WHERE `NomS`='$a'");
 	<head>
 		<title>modifierchefmatiere</title>
 		<script>
-			function loli(){
-			alert("are you sure");
-			}
 		
 			function lili(){
 			document.getElementById("end").style.visibility = "visible";
@@ -55,7 +50,7 @@ $b=mysql_query("SELECT * FROM `specialiter` WHERE `NomS`='$a'");
 						<option value="<?php echo $hh;?>"><?php echo $h;?></option>
 						<?php }?>
 						</td>
-						<td><input type=submit value="delete" name="submit3" onclick="loli()"></td>
+						<td><input type=submit value="delete" name="submit3" ></td>
 						<td><span ><input type=button onclick="lili()" value="new Chef"></td>
 							<td><span id="end" style="visibility:hidden">Name<input type=text name="namep"><br>
 															UserName<input type=text name="userp"><br>

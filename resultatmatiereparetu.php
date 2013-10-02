@@ -2,8 +2,7 @@
 include 'choixchef.php';
 $a=$_POST["name"];
 $aa=$_SESSION["matiere"];
-$b=mysql_connect("localhost","root","salameh");
-$c=mysql_select_db("projet2");
+include 'connect.php';
 $d=mysql_query("SELECT * from note where CMatiere='$aa' && UserName='$a'");
 $f=mysql_num_rows($d);
 ?>

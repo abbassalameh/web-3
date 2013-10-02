@@ -6,8 +6,7 @@ $bb=$_POST["pass"];
 $re=$_POST["retype"];
 $p=0;
 $pp=0;
-$d=mysql_connect("localhost","root","salameh");
-$e=mysql_select_db("projet2");
+include 'connect.php';
 $f=mysql_query("SELECT * from specialiter");
 $g=mysql_num_rows($f);
 if(!empty($a) && !empty($b) && !empty($aa) && !empty($bb) && !empty($re)){

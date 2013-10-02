@@ -1,10 +1,11 @@
 <?php
 include 'choixchef.php';
 $a=$_SESSION["matiere"];
-$b=mysql_connect("localhost","root","salameh");
-$c=mysql_select_db("projet2");
+include 'connect.php';
 $d=mysql_query("SELECT DISTINCT UserName from note where CMatiere='$a'");
 $e=mysql_num_rows($d);
+if($e==0){echo "<br><a href='choixchef.php'>aucun etu a fais d'examen</a>";}
+else{
 $count=0;
 ?>
 <html>
@@ -58,3 +59,4 @@ $count=0;
 		</table>
 	</body>
 </html>
+<?php } ?>

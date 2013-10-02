@@ -5,11 +5,10 @@ $_SESSION["time"]=$a;
 $un=$_SESSION["user"];
 $m=$_SESSION["matiere"];
 
-$a=mysql_connect("localhost","root","salameh");
-$b=mysql_select_db("projet2");
+include 'connect.php';
 $c=mysql_query("SELECT * from exercice where CodeMatiere='$m' AND diff='E'");
 $d=mysql_query("SELECT * from exercice where CodeMatiere='$m' AND diff='M'");
-$e=mysql_query("SELECT * from exercice where CodeMatiere='$m' AND diff='H'");
+$e=mysql_query("SELECT * from exercice where CodeMatiere='$m' AND diff='S'");
 $qwe=0;
 
 $ccc=mysql_num_rows($c);$ccc--;
@@ -43,7 +42,7 @@ $ce=mysql_result($c,$eeee,"CodeExercice");?>
 						<input type=hidden name="<?php echo 'CExerciceE' . $i;?>" value="<?php echo $ce;?>"></td>
 <?php 
 $qe=mysql_query("SELECT * from question where CExercice='$ce'");
-$qec=mysql_num_rows($qe);if($qec==0){echo "<meta http-equiv='refresh' content='0;URL=examen.php'>";}
+$qec=mysql_num_rows($qe);if($qec==0){echo "<meta http-equiv='refresh' content='0;URL=examen2.php'>";}
 	for($j=0;$j<$qec;$j++){
 		$codeqe=mysql_result($qe,$j,"CQuestion");
 		$quese=mysql_result($qe,$j,"Question");
@@ -93,7 +92,7 @@ $cm=mysql_result($d,$emmm,"CodeExercice");?>
 							<input type=hidden name="<?php echo 'CExerciceM' . $i;?>" value="<?php echo $cm;?>"></td>
 <?php
 $qe=mysql_query("SELECT * from question where CExercice='$cm'");
-$qec=mysql_num_rows($qe);if($qec==0){echo "<meta http-equiv='refresh' content='0;URL=examen.php'>";}
+$qec=mysql_num_rows($qe);if($qec==0){echo "<meta http-equiv='refresh' content='0;URL=examen2.php'>";}
 	for($j=0;$j<$qec;$j++){
 		$codeqe=mysql_result($qe,$j,"CQuestion");
 		$quese=mysql_result($qe,$j,"Question");

@@ -9,8 +9,7 @@ $datetime2 = strtotime($atime);
 $ti = $datetime2 - $datetime1;// == <seconds between the two times>
 $tim=floor($ti/3600) . ":" .  floor($ti/60) . ":" . $ti%60;
 
-$connect=mysql_connect("localhost","root","salameh");
-$db=mysql_select_db("projet2");
+include 'connect.php';
 $note=0;
 
 $spec=$_SESSION["userspec"];

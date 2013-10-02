@@ -7,8 +7,7 @@ $e=$_POST["email"];
 $s=$_POST["specialiter"];
 $po="etu";
 $p=0;
-$mc=mysql_connect("localhost","root","salameh")or die("unable to connect");
-$msd=mysql_select_db("projet2")or die("unable to connect to db");
+include 'connect.php';
 $mc1=mysql_query("SELECT * from users");
 $mnr=mysql_num_rows($mc1);
 

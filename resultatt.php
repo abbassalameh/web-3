@@ -1,11 +1,12 @@
 <?php
 session_start();
-$a=mysql_connect("localhost","root","salameh");
-$b=mysql_select_db("projet2");
+include 'connect.php';
 $c=$_SESSION["user"];
 $cc=$_SESSION["matiere"];
 $d=mysql_query("SELECT * from note where UserName='$c' && CMatiere='$cc'");
 $e=mysql_num_rows($d);
+if($e==0){echo "<a href='choixuser.php'>note note ready</a>";}
+else{
 ?>
 <html>
 	<head>
@@ -16,7 +17,7 @@ $e=mysql_num_rows($d);
 			<tr>
 				<td>Nom Matiere</td>
 				<td>Resultat</td>
-				<td>Date</td>
+				<td align=center>Date</td>
 				<td>Time</td>
 			</tr>
 			<?php for($i=0;$i<$e;$i++){
@@ -39,3 +40,4 @@ $e=mysql_num_rows($d);
 		<a href="logout.php">logout</a>
 	</body>
 </html>
+<?php } ?>

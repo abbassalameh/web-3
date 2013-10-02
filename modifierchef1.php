@@ -1,7 +1,6 @@
 <?php
 session_start();
-$a=mysql_connect("localhost","root","salameh");
-$b=mysql_select_db("projet2");
+include 'connect.php';
 $p=0;
 
 $code=$_SESSION["matiere"];

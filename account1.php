@@ -1,8 +1,7 @@
 <?php
 session_start();
 $a=$_POST["Name"];
-$aa=mysql_connect("localhost","root","salameh");
-$b=mysql_select_db("projet2");
+include 'connect.php';
 $c=mysql_query("SELECT * from users where Name='$a'");
 $d=$_POST["User"];
 $e=$_POST["Pass"];

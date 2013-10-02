@@ -11,8 +11,7 @@ if(!empty($_POST["name"])&&!empty($_POST["user"])&&
 	!empty($_POST["pass"])&&!empty($_POST["pass2"])
 	&&!empty($_POST["email"])){
 
-		$a=mysql_connect("localhost","root","salameh");
-		$b=mysql_select_db("projet2");
+		include 'connect.php';
 		$c="INSERT into Users values ('$n','$u','$p','$e','$s','$po')";
 		echo $n . " " . $u . " " . $p . " " . $re . " " . $e . " " . $s;
 	//$d=mysql_query($c);

@@ -1,8 +1,7 @@
 <?php
 session_start();
 $a=$_SESSION["user"];
-$b=mysql_connect("localhost","root","salameh");
-$c=mysql_select_db("projet2");
+include 'connect.php';
 $d=mysql_query("SELECT NomS from specialiter");
 $ff=mysql_num_rows($d);
 ?>

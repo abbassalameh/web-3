@@ -1,8 +1,7 @@
 <?php
 session_start();
 $user=$_SESSION["user"];
-$a=mysql_connect("localhost","root","salameh");
-$b=mysql_select_db("projet2");
+include 'connect.php';
 $c=mysql_query("SELECT CodeM,NomM from matiere where Prof='$user'");
 $d=mysql_num_rows($c);
 
@@ -27,7 +26,7 @@ $d=mysql_num_rows($c);
 				<tr>
 					<td><input type=submit name="submit1" value="modifier"></td>
 					<td><input type=submit name="submit2" value="resultat"></td>
-					<td><input type=submit name="submit3" value="addQ"></td>
+					<td><input type=submit name="submit3" value="add"></td>
 				</tr>
 			</table>
 		</form>

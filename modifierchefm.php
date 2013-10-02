@@ -1,8 +1,6 @@
 <?php
 include 'modifierchef.php';
-
-$aa=mysql_connect("localhost","root","salameh");
-$aaa=mysql_select_db("projet2");
+include 'connect.php';
 $a=$_SESSION["matiere"];
 $b=mysql_query("SELECT * FROM `matiere` WHERE `CodeM`='$a'");
 $bb=$_SESSION["spechef"];
@@ -52,18 +50,18 @@ $bb=$_SESSION["spechef"];
 						?>
 						<option value="<?php echo $hh;?>"><?php echo $h;?></option>
 						<?php }?>
-						</td>
-						<td><input type=submit name="submit3" value="delete"></td>
-						<td><span ><input type=button onclick="lili()" value="new prof"></td>
-							<td><span id="end" style="visibility:hidden">Name<input type=text name="namep"><br>
+					</td>
+					<td><input type=submit name="submit3" value="delete"></td>
+					<td><span ><input type=button onclick="lili()" value="new prof"></td>
+					<td><span id="end" style="visibility:hidden">Name<input type=text name="namep"><br>
 															UserName<input type=text name="userp"><br>
 															Pass<input type=text name="passp" id="pass1"><br>
 															Re-type<input type=text name="retype" id="pass11" onchange="verification()"><span id="div2"></span><br>
 															Email<input type=text name="emailp">
 															<input type=submit name="submit2" value="new">
 															</span>
-							</span>
-						</td>
+						</span>
+					</td>
 				</tr>
 				<tr>
 					<td><input type=submit name="submit1" value="modifier"></td>

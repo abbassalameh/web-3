@@ -2,10 +2,11 @@
 session_start();
 $_SESSION["noms"]=$_POST["noms"];
 $_SESSION["chef"]=$_POST["chef"];
+$true=$_SESSION["true"];
+
 $as=$_SESSION["noms"];
 $p=0;
-$a=mysql_connect("localhost","root","salameh");
-$b=mysql_select_db("projet2");
+include 'connect.php';
 
 if(isset($_POST["submit3"])){$code=mysql_query("DELETE from specialiter where NomS='$as'");echo "<meta http-equiv='refresh' content='0;URL=choixdirecteur.php'>";}
 if(isset($_POST["submit1"])){echo "<meta http-equiv='refresh' content='0;URL=modifierdir2.php'>";}
@@ -38,4 +39,6 @@ if(isset($_POST["submit2"])){
 		}
 		else echo "<a href='modifierdir.php'>mish l kil m3abeyin</a>";
 	}
+
+
 ?>

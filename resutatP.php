@@ -2,8 +2,7 @@
 include 'choixprof.php';
 $a=$_SESSION["matiere"];
 $aa=$_POST["name"];
-$b=mysql_connect("localhost","root","salameh");
-$c=mysql_select_db("projet2");
+include 'connect.php';
 $d=mysql_query("SELECT * from note where CMatiere='$a' && UserName='$aa'");
 $e=mysql_num_rows($d);
 ?>

@@ -1,8 +1,7 @@
 <?php
 	session_start();
 	$p=$_SESSION["user"];
-	$a=mysql_connect("localhost","root","salameh")or die("unable to connect to local");
-	$b=mysql_select_db("projet2")or die("unable to connect to database");
+	include 'connect.php';
 
 	$e="SELECT Specialiter from users where UserName='$p'";
 	$f=mysql_query($e);

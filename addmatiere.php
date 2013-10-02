@@ -1,8 +1,7 @@
 <?php
 include 'modifierchef.php';
 $aa=$_SESSION["spechef"];
-$a=mysql_connect("localhost","root","salameh")or die("unable to connect");
-$b=mysql_select_db("projet2")or die("unable to connect to db");
+include 'connect.php';
 $c=mysql_query("SELECT * from matiere where specialiter='$aa'");
 $cc=mysql_num_rows($c);
 $e=mysql_query("SELECT * FROM `users` WHERE `Specialiter`='$aa' && `Position`='prof'");

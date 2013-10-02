@@ -2,10 +2,11 @@
 include 'choixprof.php';
 $d=$_SESSION["matiere"];
 
-$a=mysql_connect("localhost","root","salameh");
-$b=mysql_select_db("projet2");
+include 'connect.php';
 $c=mysql_query("SELECT DISTINCT UserName from note where CMatiere='$d'");
 $cc=mysql_num_rows($c);
+if($cc==0){echo "<br><a href='choixprof.php'>page not ready</a>";}
+else{
 $count=0;
 ?>
 <html>
@@ -43,3 +44,4 @@ $count=0;
 		</table>
 	</body>
 </html>
+<?php } ?>

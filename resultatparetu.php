@@ -2,12 +2,13 @@
 session_start();
 echo "<p style='font-size:35;color:red'>" . $_POST["text"] . "</p><br>";
 $NomM=$_POST["text"];
-$a=mysql_connect("localhost","root","salameh");
-$b=mysql_select_db("projet2");
+include 'connect.php';
 $c=mysql_query("SELECT * from matiere where NomM='$NomM'");
 $code=mysql_result($c,0,"CodeM");
 $h=mysql_query("SELECT DISTINCT UserName FROM note where CMatiere='$code'");
 $cc=mysql_num_rows($h);
+if($cc==0){echo "<br><a href='resultattotalchef.php'>aucun etu a fais d'examen</a>";}
+else{
 $count=0;
 ?>
 <html>
@@ -46,3 +47,4 @@ $count=0;
 		<a href="logout.php">logout</a>
 	</body>
 </html>
+<?php } ?>

@@ -1,5 +1,6 @@
 <?php
 include 'choixchef.php';
+if(isset($_SESSION["matiere"])){
 ?>
 <html>
 	<head>
@@ -19,3 +20,7 @@ include 'choixchef.php';
 		</table>
 	</body>
 </html>
+<?php
+}
+else {echo "<br><a href='choixchef.php'>pas de matiere a modifier</a>";}
+?>

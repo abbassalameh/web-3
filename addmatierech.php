@@ -15,8 +15,7 @@ if(isset($_POST["submit2"])){
 		!empty($_POST["passp"])&&!empty($_POST["retype"])
 		&&!empty($_POST["emailp"])){
 
-		$a=mysql_connect("localhost","root","salameh");
-		$b=mysql_select_db("projet2");
+include 'connect.php';
 
 		$c=$_POST["namep"];
 		$d=$_POST["userp"];

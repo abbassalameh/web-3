@@ -3,10 +3,11 @@
 session_start();
 $spec=$_SESSION["spechef"];
 
-$a=mysql_connect("localhost","root","salameh");
-$b=mysql_select_db("projet2");
+include 'connect.php';
 $c=mysql_query("SELECT * from matiere where Specialiter='$spec'");
 $cc=mysql_num_rows($c);
+if($cc==0){echo "<br><a href='choixchef.php'>page not ready</a>";}
+else{
 		
 			//$ff=mysql_result($f,$i,"UserName");
 			//$g=mysql_query("SELECT Name from users where UserName='$ff'");
@@ -54,3 +55,4 @@ $cc=mysql_num_rows($c);
 		<a href="logout.php">logout</a>
 	</body>
 </html>
+<?php }?>

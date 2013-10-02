@@ -1,8 +1,7 @@
 <?php
 session_start();
 $a=$_SESSION["user"];
-$b=mysql_connect("localhost","root","salameh");
-$c=mysql_select_db("projet2");
+include 'connect.php';
 $d=mysql_query("SELECT Specialiter from users where UserName='$a'");
 $e=mysql_result($d,0,"Specialiter");
 $f=mysql_query("SELECT NomM,CodeM from matiere where Specialiter='$e'");

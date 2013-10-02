@@ -4,8 +4,7 @@ $_SESSION["nomm"]=$_POST["nomm"];
 $_SESSION["prfo"]=$_POST["prof"];
 $q=$_SESSION["spechef"];
 $p=0;
-$a=mysql_connect("localhost","root","salameh");
-$b=mysql_select_db("projet2");
+include 'connect.php';
 if(isset($_POST["submit3"])){$code=$_SESSION["matiere"];$code1=mysql_query("DELETE from matiere where CodeM='$code'");
 							echo "<meta http-equiv='refresh' content='0;URL=choixchef.php'>";
 }
