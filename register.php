@@ -12,7 +12,7 @@ $e=mysql_num_rows($d);
 			function verification(){
 				var a=document.getElementById("pass1");
 				var b=document.getElementById("pass11");
-				if(a.value==b.value){return true;}
+				if(a.value==b.value){document.getElementById("div1").innerHTML=" ";return true;}
 					else {document.getElementById("div1").innerHTML="pass did not match";document.getElementById("pass11").value="";
 						return false;}
 			}
