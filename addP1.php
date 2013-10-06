@@ -24,7 +24,7 @@ $nn=mysql_query("SELECT * from question where CExercice='$n'");
 $nnn=mysql_num_rows($nn);
 
 $o=$n . "-" . $nnn;
-	if($nnn>3){echo "<a href='choixprof.php'>u can not add more question bala mi7en 3al tolab</a>";}
+	if($nnn>3){echo "<a href='choixprof.php'>u can not add more question</a>";}
 	else{
 
 
